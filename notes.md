@@ -5,7 +5,12 @@
 
 also do
 * port
+* immutable js 
 
-1. set up redux (w/ reselect and immutable)
-
+1. set up redux
+* reselect
 1. 
+
+
+to do
+* delete joi
