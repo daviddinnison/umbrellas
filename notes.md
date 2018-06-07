@@ -2,13 +2,15 @@
 * get all products x
 * current cart x 
 * add/remove to cart x 
-* immutable js 
 
 also do
 * port
 
 # set up redux
-* reselect (for reducer)/saga (for actions to redux)
+* immutable js (for rendering data in component)
+    * use immutable js for sending/edit cart data in actions/reducers
+* reselect (for reducer)/
+* redux saga (for API calls to redux) w/actions
 
 # component structure
 * Gateway -> Header (w/ shopping cart), Product Grid 
