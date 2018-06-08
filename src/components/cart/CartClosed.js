@@ -6,7 +6,7 @@ import "./styles/products.css";
 class EmptyCart extends React.Component {
 
   render() {
-    return <div><p></div>;
+    return <div><p>closed cart</p></div>;
   }
 }
 
