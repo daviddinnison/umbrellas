@@ -1,11 +1,14 @@
 import { getCartRequest, getCartSuccess, getCartError } from '../actions/cart';
 
 const initialState = {
-  test: 'before........',
   message: '0',
   items: [
     {
       title: 'Black Umbrella',
+      quantity: 1
+    },
+    {
+      title: 'FUll body umbrella',
       quantity: 1
     }
   ]
@@ -14,9 +17,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case 'GET_CART_REQUEST': {
-      return Object.assign({}, state, {
-        test: '.........after'
-      });
+      return Object.assign({}, state, {});
     }
     case 'GET_CART_SUCCESS': {
       console.log('GET CART SUCCESs ACTION', action);
