@@ -3,7 +3,7 @@ import { takeEvery } from 'redux-saga';
 import { call, put, take } from 'redux-saga/effects';
 import url from './root-url';
 
-import { getCartRequest, getCartSuccess, deleteCartRequest } from '../../actions/cart';
+import { getCartRequest, getCartSuccess, deleteCartRequest, deleteCart } from '../../actions/cart';
 
 export function* getCartAsync() {
   try {
@@ -20,15 +20,15 @@ export function* watchGetCart() {
 }
 
 // REMOVE FROM CART----------------------------------------------------------------
-export function* deleteCartAsync(id) {
+export function* deleteCartAsync(action) {
+  console.log('action', action);
   try {
-    console.log('id', id);
-    // const { upc } = take('DELETE_CART_REQUEST');
-    const upc = '091806203832';
+    
+    const upc = take('DELETE_CART');
     console.log(upc, '------THE UPC---------');
     const response = yield call(axios.delete, `${url}/cart/${upc}`);
     console.log('delete cart response', response);
-    // yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
+    yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
   } catch (e) {
     console.log(e, 'THERE WAS AN ERROR');
     // yield put({ type: 'DELETE_CART_ERROR', message: e.message });
@@ -36,5 +36,5 @@ export function* deleteCartAsync(id) {
 }
 
 export function* watchDeleteCart() {
-  yield takeEvery('DELETE_CART_REQUEST', deleteCartRequest);
+  yield takeEvery('DELETE_CART', deleteCart);
 }

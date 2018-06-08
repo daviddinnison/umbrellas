@@ -15,8 +15,6 @@ export const getCartError = message => ({
   message
 });
 
-
-
 export const DELETE_CART_REQUEST = 'DELETE_CART_REQUEST';
 export const deleteCartRequest = upc => ({
   type: DELETE_CART_REQUEST,
@@ -24,9 +22,9 @@ export const deleteCartRequest = upc => ({
 });
 
 export const DELETE_CART_SUCCESS = 'DELETE_CART_SUCCESS';
-export const deleteCartSuccess = items => ({
+export const deleteCartSuccess = data => ({
   type: DELETE_CART_SUCCESS,
-  items
+  data
 });
 
 export const DELETE_CART_ERROR = 'DELETE_CART_ERROR';
@@ -34,3 +32,30 @@ export const deleteCartError = message => ({
   type: DELETE_CART_ERROR,
   message
 });
+
+export const DELETE_CART = 'DELETE_CART'
+export const deleteCart = upc => dispatch => {
+  console.log('upc in delete cart...', upc);
+  dispatch(deleteCartRequest());
+  // fetch(`http://localhost:3001/api/cart/${upc}`, {
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(upc),
+  //   method: 'DELETE'
+  // })
+  //   .then(res => {
+  //     if (!res.ok) {
+  //       throw new Error(res.statusText);
+  //     }
+  //     console.log('action success', res.json());
+  //     return res.json();
+  //   })
+  //   .then(data => {
+  //     dispatch(deleteCartSuccess(data));
+  //   })
+  //   .catch(err => {
+  //     dispatch(deleteCartError(err));
+  //   });
+};

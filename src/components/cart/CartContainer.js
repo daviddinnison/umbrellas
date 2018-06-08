@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import CartItems from './CartItems';
 import { connect } from 'react-redux';
 
-import { getCartRequest } from './../../actions/cart';
+import { getCartRequest, deleteCart } from './../../actions/cart';
 import './styles/cart.css';
 
 class CartContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleItems: false
+      visibleItems: true
     };
     this.toggleCart = this.toggleCart.bind(this);
   }
 
   componentDidMount() {
     this.props.dispatch(getCartRequest());
+    // this.props.dispatch(deleteCart({upc:'091806203832'}))
   }
 
   toggleCart() {
