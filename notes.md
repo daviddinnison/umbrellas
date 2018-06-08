@@ -26,3 +26,4 @@ also do
 to do
 * delete joi
 * renamed sagas
+* error messages

@@ -3,15 +3,15 @@ import { takeEvery } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 
 import { getCartRequest, getCartSuccess } from '../../actions/cart';
+import { getProductsRequest, getProductsSuccess } from '../../actions/products';
 
-const url = 'http://localhost:3001/api/cart';
-// 1 worker saga - calls api, async stuff, response
-export function* createLessonAsync() {
+
+const url = 'http://localhost:3001/api';
+// 1
+// worker saga
+export function* getCartAsync() {
   try {
-    console.log(response);
-
-    console.log('made it into the api---------------');
-    const response = yield call(axios.get, url);
+    const response = yield call(axios.get, `${url}/cart`);
     yield put({ type: 'GET_CART_SUCCESS', items: response.data });
   } catch (e) {
     console.log(e, 'THERE WAS AN ERROR');
@@ -19,14 +19,31 @@ export function* createLessonAsync() {
   }
 }
 
-// 2 watcher saga - listens for actions
-// spawn a new task on each action
-export function* watchCreateLesson() {
-  console.log('listening for items');
+// watcher saga- spawn a new task on each action
+export function* watchGetCart() {
   yield takeEvery('GET_CART_REQUEST', getCartRequest);
 }
 
-// 3 root saga - entry point to start other saga
+// 2
+// worker saga
+export function* getProductsAsync() {
+  try {
+    const response = yield call(axios.get, `${url}/products`);
+    console.log('getProductsAsnyc response', response.data.search_response.items);
+    yield put({ type: 'GET_PRODUCTS_SUCCESS', items: response.data.search_response.items});
+  } catch (e) {
+    console.log(e, 'THERE WAS AN ERROR');
+    yield put({ type: 'GET_PRODUCT_ERROR', message: e.message });
+  }
+}
+
+// watcher saga- spawn a new task on each action
+export function* watchGetProducts() {
+  yield takeEvery('GET_PRODUCTS_REQUEST', getProductsRequest);
+}
+
+
+// root saga
 export default function* rootSaga() {
-  yield [watchCreateLesson(), createLessonAsync()];
+  yield [watchGetCart(), getCartAsync(), watchGetProducts(), getProductsAsync()];
 }

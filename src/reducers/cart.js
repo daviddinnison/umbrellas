@@ -20,7 +20,6 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {});
     }
     case 'GET_CART_SUCCESS': {
-      console.log('GET CART SUCCESs ACTION', action);
       return Object.assign({}, state, {
         test: '.........request went through the SAGA'
       });
