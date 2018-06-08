@@ -5,9 +5,9 @@ export const getCartRequest = () => ({
 });
 
 export const GET_CART_SUCCESS = 'GET_CART_SUCCESS';
-export const getCartSuccess = () => ({
+export const getCartSuccess = items => ({
   type: GET_CART_SUCCESS,
-  test: 'baseball'
+  items
 });
 
 export const GET_CART_ERROR = 'GET_CART_ERROR';

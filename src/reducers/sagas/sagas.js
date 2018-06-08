@@ -12,7 +12,7 @@ export function* createLessonAsync() {
 
     console.log('made it into the api---------------');
     const response = yield call(axios.get, url);
-    yield put({ type: 'GET_CART_SUCCESS', response: response.data });
+    yield put({ type: 'GET_CART_SUCCESS', items: response.data });
   } catch (e) {
     console.log(e, 'THERE WAS AN ERROR');
     yield put({ type: 'GET_CART_ERROR', message: e.message });
