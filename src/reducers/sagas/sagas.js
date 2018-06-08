@@ -29,8 +29,8 @@ export function* watchGetCart() {
 export function* getProductsAsync() {
   try {
     const response = yield call(axios.get, `${url}/products`);
-    console.log('getProductsAsnyc response', response.data.search_response.items);
-    yield put({ type: 'GET_PRODUCTS_SUCCESS', items: response.data.search_response.items});
+  
+    yield put({ type: 'GET_PRODUCTS_SUCCESS', items: response.data.search_response.items.Item});
   } catch (e) {
     console.log(e, 'THERE WAS AN ERROR');
     yield put({ type: 'GET_PRODUCT_ERROR', message: e.message });

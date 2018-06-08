@@ -13,9 +13,6 @@ class ProductItems extends React.Component {
     return (
       <div>
         <p>{this.props.item.title}</p>
-        <p>{this.props.item.quantity}</p>
-        <button>remove</button>
-        
       </div>
     );
   }

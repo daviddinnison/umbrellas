@@ -13,7 +13,6 @@ class CartItems extends React.Component {
   
   
   renderItem() {
-    console.log(this.props.item, 'card item props');
     return (
       <div>
         <p>{this.props.item.title}</p>

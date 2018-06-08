@@ -15,9 +15,9 @@ class ProductGrid extends React.Component {
   showProducts() {
     if (this.props.items) {
       console.log('ITEM PROPS', this.props.items);
-      // return this.props.items.map((item, index) => {
-      //   return <ProductItems item={item} key={index}/>;
-      // })
+      return this.props.items.map((item, index) => {
+        return <ProductItems item={item} key={index}/>;
+      })
     }
   }
 
