@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const productsData = require('../sample-data.json');
 
-const cart = [{ id: 1, title: 'blue umbrella with white circles', quantity: 1 }];
-
+const cart = productsData.search_response.items.Item;
 // get all
 router.get('/', (req, res) => {
   if (!cart) {
@@ -30,10 +30,10 @@ router.post('/', (req, res) => {
 });
 
 // remove from cart
-router.delete('/:id', (req, res) => {
-  const item = cart.find(g => g.id === parseInt(req.params.id));
+router.delete('/:upc', (req, res) => {
+  const item = cart.find(g => g.upc == parseInt(req.params.upc));
   if (!item) {
-    return res.status(404).send(`ID ${req.params.id} was not found`);
+    return res.status(404).send(`upc ${req.params.upc} was not found`);
   }
 
   const index = cart.indexOf(item);

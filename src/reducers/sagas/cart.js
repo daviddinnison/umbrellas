@@ -19,21 +19,22 @@ export function* watchGetCart() {
   yield takeEvery('GET_CART_REQUEST', getCartRequest);
 }
 
-
 // REMOVE FROM CART----------------------------------------------------------------
-export function* deleteCartAsync() {
-    try {
-      const { upc } = take('DELETE_CART_REQUEST');
-      console.log(upc, '------THE UPC---------');
-      const response = yield call(axios.delete, `${url}/cart`);
-      console.log('delete cart response', response)
-      // yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
-    } catch (e) {
-      console.log(e, 'THERE WAS AN ERROR');
-      // yield put({ type: 'DELETE_CART_ERROR', message: e.message });
-    }
+export function* deleteCartAsync(id) {
+  try {
+    console.log('id', id);
+    // const { upc } = take('DELETE_CART_REQUEST');
+    const upc = '091806203832';
+    console.log(upc, '------THE UPC---------');
+    const response = yield call(axios.delete, `${url}/cart/${upc}`);
+    console.log('delete cart response', response);
+    // yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
+  } catch (e) {
+    console.log(e, 'THERE WAS AN ERROR');
+    // yield put({ type: 'DELETE_CART_ERROR', message: e.message });
   }
-  
-  export function* watchDeleteCart() {
-    yield takeEvery('DELETE_CART_REQUEST', deleteCartRequest);
-  }
+}
+
+export function* watchDeleteCart() {
+  yield takeEvery('DELETE_CART_REQUEST', deleteCartRequest);
+}

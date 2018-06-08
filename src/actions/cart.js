@@ -15,8 +15,22 @@ export const getCartError = message => ({
   message
 });
 
+
+
 export const DELETE_CART_REQUEST = 'DELETE_CART_REQUEST';
 export const deleteCartRequest = upc => ({
   type: DELETE_CART_REQUEST,
   upc
+});
+
+export const DELETE_CART_SUCCESS = 'DELETE_CART_SUCCESS';
+export const deleteCartSuccess = items => ({
+  type: DELETE_CART_SUCCESS,
+  items
+});
+
+export const DELETE_CART_ERROR = 'DELETE_CART_ERROR';
+export const deleteCartError = message => ({
+  type: DELETE_CART_ERROR,
+  message
 });
