@@ -1,33 +1,22 @@
-
 export const GET_CART_REQUEST = 'GET_CART_REQUEST';
 export const getCartRequest = () => ({
-  type: GET_CART_REQUEST
+  type: GET_CART_REQUEST,
+  test: 'test'
 });
 
+export const GET_CART_SUCCESS = 'GET_CART_SUCCESS';
+export const getCartSuccess = () => ({
+  type: GET_CART_SUCCESS,
+  test: 'baseball'
+});
 
-export const getCartItems = userInput => dispatch => {
-    dispatch(getCartRequest());
-    // fetch(
-    //   `${API_BASE_URL}?method=artist.getsimilar&artist=${formattedInput}&api_key=${API_KEY}&format=json`,
-    //   {}
-    // )
-    //   .then(res => {
-    //     if (!res.ok) {
-    //       console.log('bad response');
-    //       throw new Error(res.statusText);
-    //     }
-    //     return res.json();
-    //   })
-    //   .then(data => {
-    //     if (data.message) {
-    //       dispatch(getSimilarArtistError(data.message));
-    //     } else {
-    //       dispatch(saveOriginalArtist(formattedArtist));
-    //     }
-    //   })
-  
-    //   .catch(err => {
-        // console.log('ended up in a error catch', err);
-        // dispatch(getSimilarArtistError(err.message));
-    //   });
-  };
+export const GET_CART_ERROR = 'GET_CART_ERROR';
+export const getCartError = message => ({
+  type: GET_CART_ERROR,
+  message
+});
+
+// export const getCartItems = dispatch => {
+//   console.log('here');
+//   getCartRequest()
+// };

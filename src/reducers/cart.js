@@ -1,7 +1,8 @@
-import { getCartRequest } from '../actions/cart';
+import { getCartRequest, getCartSuccess, getCartError } from '../actions/cart';
 
 const initialState = {
   test: 'before........',
+  message: '0',
   items: [
     {
       title: 'Black Umbrella',
@@ -15,6 +16,17 @@ export default function reducer(state = initialState, action) {
     case 'GET_CART_REQUEST': {
       return Object.assign({}, state, {
         test: '.........after'
+      });
+    }
+    case 'GET_CART_SUCCESS': {
+      return Object.assign({}, state, {
+        test: '.........request went through the SAGA'
+      });
+    }
+
+    case 'GET_CART_ERROR': {
+      return Object.assign({}, state, {
+        message: action.message
       });
     }
 

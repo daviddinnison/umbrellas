@@ -3,6 +3,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './reducers/sagas/sagas';
 import cartReducer from './reducers/cart';
 
+// const action = type => store.dispatch({type})
+
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
