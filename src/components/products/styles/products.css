@@ -1,0 +1,22 @@
+.products-container {
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col{
+    flex: 0 0 90px;
+    height: 100px;
+    margin: 5px;
+    background-color: lightgrey;
+    border: 1px solid black;
+    width: 400px;
+
+}
+
+.product-title {
+    max-width: 50%;
+}

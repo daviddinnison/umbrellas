@@ -3,7 +3,7 @@ import CartItems from './CartItems';
 import { connect } from 'react-redux';
 
 import { getCartRequest } from './../../actions/cart';
-
+import './styles/cart.css';
 
 class CartContainer extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class CartContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getCartRequest()); 
+    this.props.dispatch(getCartRequest());
   }
 
   toggleCart() {
@@ -25,14 +25,14 @@ class CartContainer extends React.Component {
   showCart() {
     if (this.state.visibleCart) {
       return this.props.items.map((item, index) => {
-        return <CartItems item={item} key={index}/>;
-      })
+        return <CartItems item={item} key={index} />;
+      });
     }
   }
 
   render() {
     return (
-      <div>
+      <div className="cart">
         <button onClick={this.toggleCart}>Cart</button>
         {this.showCart()}
       </div>

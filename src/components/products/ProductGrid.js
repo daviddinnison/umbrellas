@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 import ProductItems from './ProductItems';
 
 import { getProductsRequest } from './../../actions/products';
 
+import './styles/products.css';
 
 class ProductGrid extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getProductsRequest()); 
+    this.props.dispatch(getProductsRequest());
   }
 
   showProducts() {
-    if (this.props.items) {
-      console.log('ITEM PROPS', this.props.items);
-      return this.props.items.map((item, index) => {
-        return <ProductItems item={item} key={index}/>;
-      })
-    }
+    const items = this.props.items.map((item, index) => {
+      return <ProductItems item={item} key={index} />;
+    });
+
+    return <div className="products-container flex-grid">{items}</div>;
   }
 
   render() {
