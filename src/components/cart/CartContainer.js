@@ -9,7 +9,7 @@ class CartContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleCart: true
+      visibleItems: false
     };
     this.toggleCart = this.toggleCart.bind(this);
   }
@@ -19,11 +19,11 @@ class CartContainer extends React.Component {
   }
 
   toggleCart() {
-    this.setState({ visibleCart: !this.state.visibleCart });
+    this.setState({ visibleItems: !this.state.visibleItems });
   }
 
   showCart() {
-    if (this.state.visibleCart) {
+    if (this.state.visibleItems) {
       return this.props.items.map((item, index) => {
         return <CartItems item={item} key={index} />;
       });
@@ -31,8 +31,10 @@ class CartContainer extends React.Component {
   }
 
   render() {
+    console.log('ITEM PROPS1111111111111111', this.props.items)
     return (
       <div className="cart">
+        <p>{this.props.items.length} items</p>
         <button onClick={this.toggleCart}>Cart</button>
         {this.showCart()}
       </div>

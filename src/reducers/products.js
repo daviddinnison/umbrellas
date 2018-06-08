@@ -1,7 +1,13 @@
 import { getProductsRequest, getProductsSuccess, getProductsError } from '../actions/products';
 
 const initialState = {
-  items: [{title: 'orange umb'}]
+  items: [
+    {
+      title: 'orange umb',
+      images: [{}],
+      offer_price: {}
+    }
+  ]
 };
 
 export default function reducer(state = initialState, action) {

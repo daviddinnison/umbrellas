@@ -12,11 +12,14 @@ class ProductItems extends React.Component {
   
   
   renderItem() {
-    // console.log(this.props.item, 'product item props');
+    // console.log(this.props.item.offer_price.price, 'product item props');
+    const image = String(this.props.item.images[0].base_url + this.props.item.images[0].primary);
     return (
       <div className="product-item col">
+        <img src={image} className="umbrella"/>        
+        <p className="product-price">${this.props.item.offer_price.price}</p>
         <p className="product-title">{this.props.item.title}</p>
-        <button className="add-to-cart">add to cart</button>
+        <span className="add-to-cart">add to cart</span>
       </div>
     );
   }

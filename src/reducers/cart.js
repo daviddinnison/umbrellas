@@ -1,19 +1,9 @@
 import { getCartRequest, getCartSuccess, getCartError } from '../actions/cart';
+const productsData = require('./sample-data.json');
 
 const initialState = {
   message: '0',
-  items: [
-    {
-      title: 'Black Umbrella',
-      quantity: 1,
-      upc: 788788787
-    },
-    {
-      title: 'FUll body umbrella',
-      quantity: 1,
-      upc: 10011212
-    }
-  ]
+  items: [productsData.search_response.items.Item[1]]
 };
 
 export default function reducer(state = initialState, action) {

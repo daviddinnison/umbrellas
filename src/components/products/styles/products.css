@@ -9,18 +9,26 @@
 
 .col{
     flex: 0 0 90px;
-    height: 100px;
+    height: 500px;
     margin: 5px;
     background-color: lightgrey;
     border: 1px solid black;
     width: 400px;
-
 }
 
 .product-title {
-    max-width: 50%;
+    /* max-width: 50%; */
 }
 
+.product-price {
+    font-weight: bold;
+}
 .add-to-cart {
     background-color: red
+}
+
+.umbrella {
+    margin: 0px auto;
+    display: block;
+    max-width: 80%;
 }
