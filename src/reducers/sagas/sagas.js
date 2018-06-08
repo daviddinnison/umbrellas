@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { takeEvery } from 'redux-saga';
-import { call, put } from 'redux-saga/effects';
+import { call, put, take } from 'redux-saga/effects';
 
-import { getCartRequest, getCartSuccess } from '../../actions/cart';
+import { getCartRequest, getCartSuccess, deleteCartRequest } from '../../actions/cart';
 import { getProductsRequest, getProductsSuccess } from '../../actions/products';
 
 
 const url = 'http://localhost:3001/api';
-// 1
-// worker saga
+
+// GET SHOPPING CART-----------------------------------------------------------------------
 export function* getCartAsync() {
   try {
     const response = yield call(axios.get, `${url}/cart`);
@@ -19,13 +19,11 @@ export function* getCartAsync() {
   }
 }
 
-// watcher saga- spawn a new task on each action
 export function* watchGetCart() {
   yield takeEvery('GET_CART_REQUEST', getCartRequest);
 }
 
-// 2
-// worker saga
+// GET PRODUCTS------------------------------------------------------------------
 export function* getProductsAsync() {
   try {
     const response = yield call(axios.get, `${url}/products`);
@@ -37,13 +35,30 @@ export function* getProductsAsync() {
   }
 }
 
-// watcher saga- spawn a new task on each action
 export function* watchGetProducts() {
   yield takeEvery('GET_PRODUCTS_REQUEST', getProductsRequest);
 }
 
 
+// REMOVE FROM CART----------------------------------------------------------------
+export function* deleteCartAsync() {
+  try {
+    const { upc } = take('DELETE_CART_REQUEST');
+    console.log(upc, '------THE UPC---------');
+    const response = yield call(axios.delete, `${url}/cart`);
+    console.log('delete cart response', response)
+    // yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
+  } catch (e) {
+    console.log(e, 'THERE WAS AN ERROR');
+    // yield put({ type: 'DELETE_CART_ERROR', message: e.message });
+  }
+}
+
+export function* watchDeleteCart() {
+  yield takeEvery('DELETE_CART_REQUEST', deleteCartRequest);
+}
+
 // root saga
 export default function* rootSaga() {
-  yield [watchGetCart(), getCartAsync(), watchGetProducts(), getProductsAsync()];
+  yield [watchGetCart(), getCartAsync(), watchGetProducts(), getProductsAsync(), watchDeleteCart(), deleteCartAsync()];
 }

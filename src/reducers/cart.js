@@ -5,11 +5,13 @@ const initialState = {
   items: [
     {
       title: 'Black Umbrella',
-      quantity: 1
+      quantity: 1,
+      upc: 788788787
     },
     {
       title: 'FUll body umbrella',
-      quantity: 1
+      quantity: 1,
+      upc: 10011212
     }
   ]
 };

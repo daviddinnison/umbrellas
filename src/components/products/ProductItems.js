@@ -16,7 +16,7 @@ class ProductItems extends React.Component {
     return (
       <div className="product-item col">
         <p className="product-title">{this.props.item.title}</p>
-        <button>add to cart</button>
+        <button className="add-to-cart">add to cart</button>
       </div>
     );
   }
