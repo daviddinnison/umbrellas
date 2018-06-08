@@ -4,19 +4,18 @@ import { call, put } from 'redux-saga/effects';
 
 import { getCartRequest, getCartSuccess } from '../../actions/cart';
 
-const url = 'https://jsonplaceholder.typicode.com/posts/1';
+const url = 'http://localhost:3001/api/cart';
 // 1 worker saga - calls api, async stuff, response
 export function* createLessonAsync() {
   try {
-    console.log('made it into the api---------------');
-    const response = yield call(axios.get, url);
     console.log(response);
 
-    yield put({type: 'GET_CART_SUCCESS', response: response.data})
+    console.log('made it into the api---------------');
+    const response = yield call(axios.get, url);
+    yield put({ type: 'GET_CART_SUCCESS', response: response.data });
   } catch (e) {
     console.log(e, 'THERE WAS AN ERROR');
-    yield put({type: 'GET_CART_ERROR', message: e.message})
-    
+    yield put({ type: 'GET_CART_ERROR', message: e.message });
   }
 }
 

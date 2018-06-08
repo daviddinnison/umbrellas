@@ -15,8 +15,3 @@ export const getCartError = message => ({
   type: GET_CART_ERROR,
   message
 });
-
-// export const getCartItems = dispatch => {
-//   console.log('here');
-//   getCartRequest()
-// };
