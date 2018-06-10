@@ -1,4 +1,14 @@
-import { getCartRequest, getCartSuccess, getCartError, deleteCartRequest, deleteCartSuccess, deleteCartError } from '../actions/cart';
+import {
+  getCartRequest,
+  getCartSuccess,
+  getCartError,
+  deleteCartRequest,
+  deleteCartSuccess,
+  deleteCartError,
+  postCartRequest,
+  postCartSuccess,
+  postCartError
+} from '../actions/cart';
 const productsData = require('./sample-data.json');
 
 const initialState = {
@@ -23,6 +33,23 @@ export default function reducer(state = initialState, action) {
       });
     }
 
+    case 'POST_CART_REQUEST': {
+      return Object.assign({}, state, {});
+    }
+    case 'POST_CART_SUCCESS': {
+      console.log('post cart succ in reducer', action);
+
+      return Object.assign({}, state, {
+        items: [...state.items, action.item]
+      });
+    }
+
+    case 'POST_CART_ERROR': {
+      return Object.assign({}, state, {
+        message: action.message
+      });
+    }
+
     case 'DELETE_CART_REQUEST': {
       return Object.assign({}, state, {});
     }
@@ -32,7 +59,7 @@ export default function reducer(state = initialState, action) {
         items: [...state.items.slice(0, action.data)]
       });
     }
-    
+
     case 'DELETE_CART_ERROR': {
       return Object.assign({}, state, {
         message: action.message

@@ -18,13 +18,7 @@ router.post('/', (req, res) => {
   // is item formatted correctly
   // does item already exist?
   // control quantity from post
-
-  const result = {
-    title: req.body.title,
-    id: req.body.upc,
-    quantity: 1
-  };
-
+  const result = req.body;
   cart.push(result);
   res.status(200).send(result);
 });
