@@ -8,6 +8,8 @@ import { getCartRequest, getCartSuccess, deleteCartRequest, deleteCart } from '.
 export function* getCartAsync() {
   try {
     const response = yield call(axios.get, `${url}/cart`);
+    console.log('url', `${url}/cart`);
+    console.log('get cart response', response.data);
     yield put({ type: 'GET_CART_SUCCESS', items: response.data });
   } catch (e) {
     console.log(e, 'THERE WAS AN ERROR');

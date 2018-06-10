@@ -35,7 +35,6 @@ export const deleteCartError = message => ({
 
 export const DELETE_CART = 'DELETE_CART'
 export const deleteCart = upc => dispatch => {
-  console.log('upc in delete cart...', upc);
   dispatch(deleteCartRequest());
   fetch(`http://localhost:3001/api/cart/${upc}`, {
     headers: {
@@ -49,10 +48,10 @@ export const deleteCart = upc => dispatch => {
       if (!res.ok) {
         throw new Error(res.statusText);
       }
-      console.log('action success', res.json());
       return res.json();
     })
     .then(data => {
+      console.log('delete cart data', data)
       dispatch(deleteCartSuccess(data));
     })
     .catch(err => {

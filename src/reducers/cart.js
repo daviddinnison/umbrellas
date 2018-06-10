@@ -3,7 +3,7 @@ const productsData = require('./sample-data.json');
 
 const initialState = {
   message: '0',
-  items: [productsData.search_response.items.Item[0]]
+  items: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -12,8 +12,9 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {});
     }
     case 'GET_CART_SUCCESS': {
+      console.log('get cart success', action.items);
       return Object.assign({}, state, {
-        test: '.........request went through the SAGA'
+        items: action.items
       });
     }
 
@@ -24,12 +25,16 @@ export default function reducer(state = initialState, action) {
     }
 
     case 'DELETE_CART_REQUEST': {
-      console.log('reducer request')
+      console.log('reducer request');
       return Object.assign({}, state, {});
     }
     case 'DELETE_CART_SUCCESS': {
+      console.log('DELETE ACTION DATA IN REDUCER', action);
       return Object.assign({}, state, {
-        test: 'delete item'
+        items: [
+          ...state.items.slice(0, action.data)
+          // ...state.items.slice(action.payload + 1)
+        ]
       });
     }
 

@@ -24,9 +24,13 @@ class CartContainer extends React.Component {
 
   showCart() {
     if (this.state.visibleItems) {
-      return this.props.items.map((item, index) => {
-        return <CartItems item={item} key={index} />;
-      });
+      if (this.props.items) {
+        return this.props.items.map((item, index) => {
+          return <CartItems item={item} key={index} />;
+        });
+      } else {
+        return <p>empty cart</p>;
+      }
     }
   }
 
