@@ -42,7 +42,7 @@ export const deleteCart = upc => dispatch => {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(upc),
+    // body: JSON.stringify(upc),
     method: 'DELETE'
   })
     .then(res => {

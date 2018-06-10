@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 
 // remove from cart
 router.delete('/:upc', (req, res) => {
-  const item = cart.find(g => g.upc == parseInt(req.params.upc));
+  const item = cart.find(g => g.upc == parseInt(req.params.upc, 10));
   if (!item) {
     return res.status(404).send(`upc ${req.params.upc} was not found`);
   }
