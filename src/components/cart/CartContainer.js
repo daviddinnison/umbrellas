@@ -9,7 +9,7 @@ class CartContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleItems: true
+      visibleItems: false
     };
     this.toggleCart = this.toggleCart.bind(this);
   }

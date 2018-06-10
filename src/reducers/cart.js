@@ -9,7 +9,6 @@ import {
   postCartSuccess,
   postCartError
 } from '../actions/cart';
-const productsData = require('./sample-data.json');
 
 const initialState = {
   message: '0',

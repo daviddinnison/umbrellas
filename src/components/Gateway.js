@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Header from './Header';
 import ProductGrid from './products/ProductGrid.js';
-import CartContainer from './cart/CartContainer.js';
 
 
 class Gateway extends React.Component {
@@ -11,7 +10,6 @@ class Gateway extends React.Component {
     return (
       <div>
         <Header />
-        <CartContainer />
         <ProductGrid />
       </div>
     );

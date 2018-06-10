@@ -22,7 +22,7 @@ class ProductGrid extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="products">
         {this.showProducts()}
       </div>
     );
