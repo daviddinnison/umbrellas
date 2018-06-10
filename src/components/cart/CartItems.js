@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 
 class CartItems extends React.Component {
   deleteItem(upc) {
-    console.log('you will delete this item', upc);
     this.props.dispatch(deleteCart(upc));
   }
 
