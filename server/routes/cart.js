@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productsData = require('../sample-data.json');
 
-const cart = productsData.search_response.items.Item;
+const cart = [productsData.search_response.items.Item[0]];
 // get all
 router.get('/', (req, res) => {
   if (!cart) {

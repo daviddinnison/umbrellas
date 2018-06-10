@@ -37,25 +37,25 @@ export const DELETE_CART = 'DELETE_CART'
 export const deleteCart = upc => dispatch => {
   console.log('upc in delete cart...', upc);
   dispatch(deleteCartRequest());
-  // fetch(`http://localhost:3001/api/cart/${upc}`, {
-  //   headers: {
-  //     Accept: 'application/json',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(upc),
-  //   method: 'DELETE'
-  // })
-  //   .then(res => {
-  //     if (!res.ok) {
-  //       throw new Error(res.statusText);
-  //     }
-  //     console.log('action success', res.json());
-  //     return res.json();
-  //   })
-  //   .then(data => {
-  //     dispatch(deleteCartSuccess(data));
-  //   })
-  //   .catch(err => {
-  //     dispatch(deleteCartError(err));
-  //   });
+  fetch(`http://localhost:3001/api/cart/${upc}`, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(upc),
+    method: 'DELETE'
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      console.log('action success', res.json());
+      return res.json();
+    })
+    .then(data => {
+      dispatch(deleteCartSuccess(data));
+    })
+    .catch(err => {
+      dispatch(deleteCartError(err));
+    });
 };

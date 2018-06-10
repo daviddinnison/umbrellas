@@ -22,17 +22,19 @@ export function* watchGetCart() {
 // REMOVE FROM CART----------------------------------------------------------------
 export function* deleteCartAsync(action) {
   console.log('action', action);
-  try {
+  console.log('Wired up!');
+      yield 'WIRED UP!'
+  // try {
     
-    const upc = take('DELETE_CART');
-    console.log(upc, '------THE UPC---------');
-    const response = yield call(axios.delete, `${url}/cart/${upc}`);
-    console.log('delete cart response', response);
-    yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
-  } catch (e) {
-    console.log(e, 'THERE WAS AN ERROR');
-    // yield put({ type: 'DELETE_CART_ERROR', message: e.message });
-  }
+  //   const upc = take('DELETE_CART');
+  //   console.log(upc, '------THE UPC---------');
+  //   const response = yield call(axios.delete, `${url}/cart/${upc}`);
+  //   console.log('delete cart response', response);
+  //   yield put({ type: 'DELETE_CART_SUCCESS', items: response.data.search_response.items.Item});
+  // } catch (e) {
+  //   console.log(e, 'THERE WAS AN ERROR');
+  //   // yield put({ type: 'DELETE_CART_ERROR', message: e.message });
+  // }
 }
 
 export function* watchDeleteCart() {

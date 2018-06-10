@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CartItems from './CartItems';
 import { connect } from 'react-redux';
 
-import { getCartRequest, deleteCart } from './../../actions/cart';
+import { getCartRequest } from './../../actions/cart';
 import './styles/cart.css';
 
 class CartContainer extends React.Component {
@@ -16,7 +16,6 @@ class CartContainer extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getCartRequest());
-    // this.props.dispatch(deleteCart({upc:'091806203832'}))
   }
 
   toggleCart() {
@@ -32,7 +31,6 @@ class CartContainer extends React.Component {
   }
 
   render() {
-    console.log('ITEM PROPS1111111111111111', this.props.items)
     return (
       <div className="cart">
         <p>{this.props.items.length} items</p>
