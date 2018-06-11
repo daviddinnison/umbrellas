@@ -10,22 +10,32 @@ class CartItems extends React.Component {
   }
 
   renderItem() {
+    const image = String(this.props.item.images[0].base_url + this.props.item.images[0].primary);
+    console.log('image props', this.props.item);
     return (
-      <div>
-        <p>{this.props.item.title}</p>
-        <p>{this.props.item.quantity}</p>
-        <p>{this.props.item.upc}</p>
-        <button
-          onClick={() => {
-            const message = `Are you sure you wish to delete ${this.props.item.title} from your cart?`;
+      <div className="row">
+        <div className="col-sm-3">
+          <img src={image} className="umbrella-sm" />
+        </div>
+        <div className="col-sm-3">
+          <p>{this.props.item.title}</p>
+        </div>
+        <div className="col-sm-3">
+          <p className="col-sm-3">${this.props.item.offer_price.price}</p>
+        </div>
+        <div className="col-sm-3">
+          <button
+            onClick={() => {
+              const message = `Are you sure you wish to delete ${this.props.item.title} from your cart?`;
 
-            if (window.confirm(message)) {
-              this.deleteItem(this.props.item.upc);
-            }
-          }}
-        >
-          remove
-        </button>
+              if (window.confirm(message)) {
+                this.deleteItem(this.props.item.upc);
+              }
+            }}
+          >
+            remove
+          </button>
+        </div>
       </div>
     );
   }

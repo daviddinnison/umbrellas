@@ -11,8 +11,9 @@ import {
 } from '../actions/cart';
 
 const initialState = {
-  message: '0',
-  items: []
+  message: '',
+  items: [],
+  total: 0
 };
 
 export default function reducer(state = initialState, action) {
@@ -21,8 +22,14 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {});
     }
     case 'GET_CART_SUCCESS': {
+      let newTotal = 0;
+      for (let i = 0; i < action.items.length; i++) {
+        newTotal += action.items[i].offer_price.price;
+      }
+
       return Object.assign({}, state, {
-        items: action.items
+        items: action.items,
+        total: newTotal
       });
     }
 
@@ -54,8 +61,10 @@ export default function reducer(state = initialState, action) {
     }
 
     case 'DELETE_CART_SUCCESS': {
+      console.log('delete cart action data', action.data);
+
       return Object.assign({}, state, {
-        items: [...state.items.slice(0, action.data)]
+        items: state.items.filter(item => item.upc !== action.data.upc)
       });
     }
 

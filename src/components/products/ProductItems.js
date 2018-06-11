@@ -16,7 +16,7 @@ class ProductItems extends React.Component {
     const image = String(this.props.item.images[0].base_url + this.props.item.images[0].primary);
     return (
       <div className="product-item col">
-        <img src={image} className="umbrella" />
+        <img src={image} className="umbrella-lg" />
         <p className="product-price">${this.props.item.offer_price.price}</p>
         <p className="product-title">{this.props.item.title}</p>
         <button

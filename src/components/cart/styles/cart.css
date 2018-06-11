@@ -1,5 +1,13 @@
 .cart {
+    background: white;
+    margin-top: 69px;
+    display: block;
+    position: fixed;
+    width: 100%;
+}
 
-
-
+.umbrella-sm {
+    margin: 0px auto;
+    display: block;
+    max-width: 60%;
 }
