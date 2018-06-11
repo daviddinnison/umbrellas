@@ -21,7 +21,7 @@ export function* watchGetCart() {
 
 // REMOVE FROM CART----------------------------------------------------------------
 export function* deleteCartAsync(action) {
-      yield 'WIRED UP!'
+      // yield 'WIRED UP!'
   // try {
     
   //   const upc = take('DELETE_CART');

@@ -9,7 +9,7 @@ class CartContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleItems: true
+      visibleItems: false
     };
     this.toggleCart = this.toggleCart.bind(this);
   }
@@ -33,8 +33,6 @@ class CartContainer extends React.Component {
   }
 
   render() {
-    console.log('total props', this.props.total);
-
     return (
       <div className="cart container-fluid">
         <div className="cart-indicator">

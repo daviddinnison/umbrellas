@@ -3,7 +3,7 @@ import { getProductsRequest, getProductsSuccess, getProductsError } from '../act
 const initialState = {
   items: [
     {
-      title: 'orange umb',
+      title: '',
       images: [{}],
       offer_price: {}
     }

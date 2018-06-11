@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Map } from 'immutable';
+
 import { postCart } from './../../actions/cart';
 
 import './styles/products.css';
@@ -12,7 +12,6 @@ class ProductItems extends React.Component {
   }
 
   renderItem() {
-    // console.log(this.props.item.upc, 'product item props');
     const image = String(this.props.item.images[0].base_url + this.props.item.images[0].primary);
     return (
       <div className="product-item col">

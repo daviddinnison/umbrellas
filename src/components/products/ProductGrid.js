@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ProductItems from './ProductItems';
-
 import { getProductsRequest } from './../../actions/products';
 
 import './styles/products.css';

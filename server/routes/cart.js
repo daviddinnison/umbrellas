@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productsData = require('../sample-data.json');
 
-const cart = [productsData.search_response.items.Item[0]];
+const cart = [];
 // get all
 router.get('/', (req, res) => {
   if (!cart) {
@@ -14,10 +14,6 @@ router.get('/', (req, res) => {
 
 // add to cart
 router.post('/', (req, res) => {
-  // validate?
-  // is item formatted correctly
-  // does item already exist?
-  // control quantity from post
   const result = req.body;
   cart.push(result);
   res.status(200).send(result);
