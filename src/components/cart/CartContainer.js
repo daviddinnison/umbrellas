@@ -28,20 +28,20 @@ class CartContainer extends React.Component {
         return this.props.items.map((item, index) => {
           return <CartItems item={item} key={index} />;
         });
-      } else {
-        return <p>empty cart</p>;
-      }
+      } 
     }
   }
 
   render() {
-    console.log('total props', this.props.total)
-    
+    console.log('total props', this.props.total);
+
     return (
-      <div className="cart container-fluid" >
-      <p>${this.props.total}</p>
-        <p>{this.props.items.length} items</p>
-        <button onClick={this.toggleCart}>Cart</button>
+      <div className="cart container-fluid">
+        <div className="cart-indicator">
+        <p>({this.props.items.length}) items</p>
+        <p className="cart-item-total">${this.props.total}</p>
+        <button onClick={this.toggleCart}>View Cart</button>
+        </div>
         {this.showCart()}
       </div>
     );

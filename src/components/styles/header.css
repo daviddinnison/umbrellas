@@ -1,6 +1,9 @@
 header {
-    background: white;
-    display: block;
-    position: fixed;
-    width: 100%;
+    background: #216583;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+header h1 {
+    color: #cffdf8;
 }

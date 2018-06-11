@@ -13,18 +13,19 @@ class CartItems extends React.Component {
     const image = String(this.props.item.images[0].base_url + this.props.item.images[0].primary);
     console.log('image props', this.props.item);
     return (
-      <div className="row">
+      <div className="row cart-item">
         <div className="col-sm-3">
           <img src={image} className="umbrella-sm" />
+        </div>
+        <div className="col-sm-3 cart-item-total">
+          <p>${this.props.item.offer_price.price}</p>
         </div>
         <div className="col-sm-3">
           <p>{this.props.item.title}</p>
         </div>
         <div className="col-sm-3">
-          <p className="col-sm-3">${this.props.item.offer_price.price}</p>
-        </div>
-        <div className="col-sm-3">
           <button
+            className="remove-cart"
             onClick={() => {
               const message = `Are you sure you wish to delete ${this.props.item.title} from your cart?`;
 

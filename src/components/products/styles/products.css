@@ -1,6 +1,4 @@
-.products-container {
-    padding-top: 150px;
-}
+.products-container {}
 
 .flex-grid {
     display: flex;
@@ -8,28 +6,27 @@
     justify-content: center;
 }
 
-.col{
+.col {
     flex: 0 0 90px;
     height: 500px;
     margin: 5px;
-    background-color: lightgrey;
-    border: 1px solid black;
     width: 400px;
 }
 
-.product-title {
-    /* max-width: 50%; */
+.product-item {
+    box-shadow: 2px 2px 3px #E1E1DE;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 20px;
 }
 
 .product-price {
     font-weight: bold;
 }
-.add-to-cart {
-    background-color: red
-}
 
 .umbrella-lg {
     margin: 0px auto;
+    margin-bottom: 20px;
     display: block;
     max-width: 80%;
 }

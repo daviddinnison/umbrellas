@@ -20,6 +20,7 @@ class ProductItems extends React.Component {
         <p className="product-price">${this.props.item.offer_price.price}</p>
         <p className="product-title">{this.props.item.title}</p>
         <button
+          className="add-to-cart"
           onClick={() => {
             const message = `Are you sure you wish to delete ${this.props.item.title} to your cart?`;
             if (window.confirm(message)) {

@@ -61,8 +61,6 @@ export default function reducer(state = initialState, action) {
     }
 
     case 'DELETE_CART_SUCCESS': {
-      console.log('delete cart action data', action.data);
-
       return Object.assign({}, state, {
         items: state.items.filter(item => item.upc !== action.data.upc)
       });
